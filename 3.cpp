@@ -1,4 +1,4 @@
-#import <iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -38,20 +38,32 @@ public:
         Empregado::sMens = sMens;
     }
 
+    float addTen(){
+        return (this->sMens*10)/100;
+    }
+
 };
 
 int main(){
 
     string nome, sNome;
-    float sMens;
+    float sMens, att;
 
-    Empregado e(nome, sNome, sMens);
-    Empregado e1(nome, sNome, sMens);
+    Empregado e("Amaro", "Neto", 7900);
+    Empregado e1("Huzky", "Whitesky", 7900);
 
+    cout << "Nome: " << e.getNome() << " Sobrenome: " << e.getSNome() << " Salario anual: " << e.getSMens()*12 << endl;
+    cout << "Nome: " << e1.getNome() << " Sobrenome: " << e1.getSNome() << " Salario anual: " << e1.getSMens()*12 << endl;
 
+    cout<<endl;
 
-    cout << e.getNome() << " " << e.getSNome() << " " << e.getSMens() << endl;
-    cout << e1.getNome() << " " << e1.getSNome() << " " << e1.getSMens() << endl;
+    cout << "------------- ADICIONAL DE 10%-------------"<<endl;
+
+    cout<<endl;
+
+    cout << "Nome: " << e.getNome() << " Sobrenome: " << e.getSNome() << " Salario anual: " << (e.getSMens() + e.addTen())*12 << endl;
+    cout << "Nome: " << e1.getNome() << " Sobrenome: " << e1.getSNome() << " Salario anual: " << (e1.getSMens() + e1.addTen())*12 << endl;
+
 
     return 0;
 }
